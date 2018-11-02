@@ -17,8 +17,8 @@ public class CustomArrayList<E> {
 
     public void add(E element) {
         spaceInTheArray();
-        size = size + 1;
         baseArray[size] = element;
+        size = size + 1;
     }
 
     private void spaceInTheArray() {
