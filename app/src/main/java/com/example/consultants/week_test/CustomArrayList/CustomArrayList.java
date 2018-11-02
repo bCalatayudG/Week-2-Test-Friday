@@ -3,12 +3,12 @@ package com.example.consultants.week_test.CustomArrayList;
 public class CustomArrayList<E> {
 
     Object[] baseArray;
-    public static final int DEFAULT_SIZE = 5;
+    public static final int FIXED_VALUE = 5;
     int size = 0;
 
 
     public CustomArrayList() {
-        this(DEFAULT_SIZE);
+        this(FIXED_VALUE);
     }
 
     public CustomArrayList(int size) {
@@ -16,22 +16,26 @@ public class CustomArrayList<E> {
     }
 
     public void add(E element) {
+        spaceInTheArray();
+        size = size + 1;
+        baseArray[size] = element;
+    }
+
+    private void spaceInTheArray() {
         if (size < baseArray.length) {
             return;
         }
-        resize();
-        baseArray[size++] = element;
-    }
-
-    private void resize() {
         Object[] temp = new Object[baseArray.length * 2];
-        copy(baseArray, temp);
+        for (int i = 0; i < baseArray.length; i++) {
+            temp[i] = baseArray[i];
+        }
         baseArray = temp;
     }
 
-    private void copy(Object[] src, Object[] dest){
-        for(int i=0;i<src.length; i++){
-            dest[i] = src[i];
+    public void print() {
+        for (Object element : baseArray) {
+            if (element != null)
+                System.out.println(element);
         }
     }
 

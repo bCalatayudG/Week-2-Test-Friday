@@ -32,6 +32,10 @@ public class MainClass {
         q.print();
 
         CustomArrayList<String> list = new CustomArrayList<String>();
+        list.add("String");
+        list.add("fsdrth");
+
+        list.print();
 
     }
 
